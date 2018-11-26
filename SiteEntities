@@ -1,0 +1,20 @@
+Entities :
+
+Car : Company, String
+      Model, String
+
+Exhibition : Place, String
+             Date, String
+             Cars, String List
+Excursion : Places, String
+            Date, String
+            Price, Int
+Package : Exhibitions, String List
+          Excursions, String List
+          Date, String
+User : Type, Integer
+       Username, String
+       Name, String
+       Surname, String
+       Packages, String List
+       Excursions, String List
