@@ -7,6 +7,7 @@ from django.db import models
 class Car(models.Model) :
     company = models.CharField(max_length=200)
     model = models.CharField(max_length=200)
+    year = models.IntegerField('year', default=0)
 class Exhibition(models.Model) :
     place = models.CharField(max_length=200)
     date = models.DateTimeField('exhibitionDate')
