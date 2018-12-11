@@ -21,7 +21,7 @@ class Car(models.Model) :
     model = models.CharField(max_length=200)
     year = models.IntegerField('year', default=0)
     color = models.CharField(max_length=200)
-    engine = models.ForeignKey(Engine, on_delete=models.CASCADE, blank=True) #in case of a car with two engines this will need to change
+    engine = models.ForeignKey(Engine, on_delete=models.CASCADE, blank=True, null=True) #in case of a car with two engines this will need to change
     extra_information = models.CharField(max_length=500, null=True, blank=True)
     def __str__(self):
         return "%s %s %s" % (self.company, self.model, self.year)
@@ -40,14 +40,16 @@ class Excursion(models.Model) :
     title = models.CharField(max_length=200, unique=True)
     location = models.ManyToManyField(Location)
     date = models.DateTimeField('excursionDate')
-    price = models.IntegerField('price', default=0)
     cars = models.ManyToManyField(Car)
+    description = models.TextField(max_length=800, blank=True, null=True)
+    price = models.IntegerField('price', default=0)
+
     def __str__(self):
         return self.title
 class Bundle(models.Model) :
     title = models.CharField(max_length=200, unique=True)
-    exhibitions = models.ManyToManyField(Exhibition)
-    excursion = models.ManyToManyField(Excursion)
+    exhibitions = models.ManyToManyField(Exhibition, null=True, blank=True)
+    excursions = models.ManyToManyField(Excursion, null=True, blank=True)
     date = models.DateTimeField('BundleDates')
     price = models.IntegerField('price', default=0)
     def __str__(self):
