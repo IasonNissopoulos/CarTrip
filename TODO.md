@@ -13,3 +13,6 @@
   2. Φορμα εισαγωγης post
   3. Φορμα εισαγωγης bundle
   4. Φορμα εισαγωγης
+## Next_step :
+  react_django_rest_framework :
+  create views.py
