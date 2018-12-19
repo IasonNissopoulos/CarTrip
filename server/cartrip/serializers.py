@@ -8,7 +8,7 @@ class EngineSerializer(serializers.ModelSerializer):
 class LocationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Location
-        fields = ('location_address',,'map_location')
+        fields = ('location_address','map_location')
 class CarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Car

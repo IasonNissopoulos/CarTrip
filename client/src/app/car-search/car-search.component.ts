@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
-import { Observable, Subject } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 import {
-   debounceTime, distinctUntilChanged, switchMap
+  debounceTime, distinctUntilChanged, switchMap, tap, catchError
  } from 'rxjs/operators';
 
 import { Car } from '../car';
@@ -14,27 +15,41 @@ import { CarService } from '../car.service';
   templateUrl: './car-search.component.html',
   styleUrls: [ './car-search.component.css' ]
 })
-export class CarSearchComponent implements OnInit {
-  cars$: Observable<Car[]>;
-  private searchTerms = new Subject<string>();
+export class CarSearchComponent {
+  public model: any;
+  searching = false;
+  searchFailed = false;
 
-  constructor(private carService: CarService) {}
+  public cars$: Observable<Car[]>;
+
+  constructor(private router: Router,
+              private carService: CarService) {}
 
   // Push a search term into the observable stream.
-  search(term: string): void {
-    this.searchTerms.next(term);
-  }
-
-  ngOnInit(): void {
-    this.cars$ = this.searchTerms.pipe(
-      // wait 300ms after each keystroke before considering the term
+  search = (text$: Observable<string>) =>
+    text$.pipe(
       debounceTime(300),
-
-      // ignore new term if same as previous term
       distinctUntilChanged(),
+      tap(() => this.searching = true),
+      switchMap(term =>
+                this.carService.searchCars(term).pipe(
+                  tap(() => this.searchFailed = false),
+                  catchError(() => {
+                    console.log('Failed!');
+                    this.searchFailed = true;
+                    return of([]);
+                  }))
+               ),
+      tap(() => {this.searching = false;})
+    )
 
-      // switch to new search observable each time the term changes
-      switchMap((term: string) => this.carService.searchCars(term)),
-    );
+  formatter(b: Car): string {
+    return b.model;
   }
+
+  selectedItem(event) : void {
+    var car = event.item;
+    this.router.navigate([`/cars/${car.id}`]);
+  }
+
 }

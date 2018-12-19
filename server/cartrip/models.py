@@ -34,6 +34,7 @@ class Exhibition(models.Model) :
     cars = models.ManyToManyField(Car)
     description = models.TextField(max_length=800, blank=True, null=True)
     price = models.IntegerField('price', default=0)
+
     def __str__(self):
         return self.title
 class Excursion(models.Model) :
@@ -63,6 +64,8 @@ class Post(models.Model) :
     text = models.TextField(default='Post')
     #likes = models.ManyToManyField(Like)
     post_date = models.DateTimeField(auto_now=True )
+    def __str__(self):
+        return "%s %s" % (self.text, self.post_date)
 class Comment(models.Model) :
     #author = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)

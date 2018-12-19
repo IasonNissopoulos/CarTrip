@@ -9,7 +9,6 @@ import { CarsComponent } from './cars/cars.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { CarDetailComponent } from './car-detail/car-detail.component';
 import { CarSearchComponent } from './car-search/car-search.component';
 
 @NgModule({
@@ -18,7 +17,6 @@ import { CarSearchComponent } from './car-search/car-search.component';
     CarsComponent,
     MessagesComponent,
     DashboardComponent,
-    CarDetailComponent,
     CarSearchComponent
 
   ],
