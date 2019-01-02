@@ -26,12 +26,15 @@ export class CarsComponent implements OnInit {
     this.carService.getCars()
       .subscribe(cars => this.cars = cars);
   }
-  add(company: string,  model: string, yearStr: string): void {
-    model = model.trim();
+  add(company: string,  model: string, yearStr: string, color:string, engine:string, extra_information:string): void {
     company = company.trim();
+    model = model.trim();
+    color = color.trim();
+    engine = engine.trim();
+    extra_information = extra_information.trim();
     let year = +yearStr;
-    if (!model || !company || !year) { return; }
-    this.carService.addCar({ model, company, year } as Car)
+    if (!company || !model || !color || !engine || !extra_information || !year) { return; }
+    this.carService.addCar({ company, model, color, engine, extra_information, year } as Car)
       .subscribe(car => {
         // If the operation has failed, CarService's handleError()
         // will have given an empty result; so we add to the

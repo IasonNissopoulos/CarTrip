@@ -1,24 +1,55 @@
+<h2>Cars</h2>
+
 <div>
-  <label>Car id:</label> <input #carId />
-  <label>Car company:</label> <input #carCompany />
-  <label>Car model:</label> <input #carModel />
-  <label>Car Release Date:</label> <input #carYear />
-  <!-- (click) passes input values to add() and then clears input -->
-  <button (click)="add(carId.value, carCompany.value, carModel.value, carYear.value);
-                   carId.value='';
-                   carCompany.value='';
-                   carModel.value='';
-                   carYear.value=''">
-    Add
-  </button>
+  <form>
+    <div class="form-row">
+      <div class="col">
+        <input class="form-control" #carCompany placeholder="Car Company"/>
+      </div>
+      <div class="col">
+        <input class="form-control" #carModel placeholder="Car model"/>
+      </div>
+      <div class="col">
+        <input class="form-control" #carYear
+               placeholder="Release Date"/>
+      </div>
+
+      <div class="col">
+        <input class="form-control" #carColor
+               placeholder="carColor"/>
+      </div>
+      <div class="col">
+        <input class="form-control" #carEngine
+               placeholder="Engine"/>
+      </div>
+      <div class="col">
+        <input class="form-control" #carExtra_information
+               placeholder="Some Words"/>
+      </div>
+      <!-- (click) passes input values to add() and then clears input -->
+      <button class="btn btn-primary"
+              (click)="add(carCompany.value, carModel.value, carYear.value, carColor.value, carEngine.value, carExtra_information.value );
+                       carCompany.value='';
+                       carModel.value='';
+                       carYear.value='';
+                       carColor.value='';
+                       carEngine.value='';
+                       carExtra_information.value=''">
+        Add
+      </button>
+    </div>
+  </form>
 </div>
 
-<ul class="cars">
-   <li *ngFor="let car of cars">
-     <a routerLink="/detail/{{car.id}}">
-       <span class="badge">{{car.id}}</span> {{car.model}}
+<ul class="list-group cars">
+  <li class="list-group-item car" *ngFor="let car of cars">
+    <div class="car-item">
+     <a routerLink="/cars/{{car.id}}">
+       <span class="badge badge-secondary badge-pill">{{car.id}}</span>
+       {{car.model}}
      </a>
-     <button class="delete" title="delete car"
+    </div>
+     <button class="btn btn-secondary" model="delete car"
              (click)="delete(car)">x</button>
    </li>
 </ul>
