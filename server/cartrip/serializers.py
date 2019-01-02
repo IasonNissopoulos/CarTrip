@@ -21,7 +21,7 @@ class ExhibitionSerializer(serializers.ModelSerializer):
 class ExcursionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Excursion
-        fields = ('title', 'location', 'cars', 'description', 'price')
+        fields = ('title', 'location','date', 'cars', 'description', 'price')
 class BundleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Bundle

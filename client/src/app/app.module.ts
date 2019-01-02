@@ -14,6 +14,14 @@ import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CarSearchComponent } from './car-search/car-search.component';
 import { LoginComponent } from './login/login.component';
+import { EnginesComponent } from './engines/engines.component';
+import { LocationsComponent } from './locations/locations.component';
+import { ExhibitionsComponent } from './exhibitions/exhibitions.component';
+import { ExcursionsComponent } from './excursions/excursions.component';
+import { BundlesComponent } from './bundles/bundles.component';
+import { PostsComponent } from './posts/posts.component';
+import { CommentsComponent } from './comments/comments.component';
+import { CarDetailComponent } from './car-detail/car-detail.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +30,15 @@ import { LoginComponent } from './login/login.component';
     MessagesComponent,
     DashboardComponent,
     CarSearchComponent,
-    LoginComponent
+    LoginComponent,
+    EnginesComponent,
+    LocationsComponent,
+    ExhibitionsComponent,
+    ExcursionsComponent,
+    BundlesComponent,
+    PostsComponent,
+    CommentsComponent,
+    CarDetailComponent
 
   ],
   imports: [

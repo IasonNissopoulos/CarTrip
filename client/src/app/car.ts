@@ -3,4 +3,7 @@ export class Car {
   company: string;
   model: string;
   year: number;
+  color: string;
+  engine: string;
+  extra_information: string;
 }
