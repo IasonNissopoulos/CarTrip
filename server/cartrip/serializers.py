@@ -12,7 +12,7 @@ class LocationSerializer(serializers.ModelSerializer):
 class CarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Car
-        fields = ('company','model', 'year', 'color', 'engine', 'extra_information')
+        fields = ('company','model', 'year', 'color', 'engine', 'extra_information', 'image')
 class ExhibitionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Exhibition

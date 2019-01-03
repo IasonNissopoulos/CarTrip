@@ -23,6 +23,7 @@ class Car(models.Model) :
     color = models.CharField(max_length=200)
     engine = models.ForeignKey(Engine, on_delete=models.CASCADE, blank=True, null=True) #in case of a car with two engines this will need to change
     extra_information = models.CharField(max_length=500, null=True, blank=True)
+    image = models.ImageField(upload_to='images')
     def __str__(self):
         return "%s %s %s" % (self.company, self.model, self.year)
     #maybe i can manage photos with photologue django
