@@ -1,5 +1,4 @@
 <div class="container">
-  <h1>{{title}}</h1>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <button class="navbar-toggler"
             type="button"
@@ -10,9 +9,16 @@
             aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
+    <a class="navbar-brand" href="#">
+          <img src="assets\cartrip.png?text=Logo" alt="">
+        </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav mx-auto">
+        <app-car-search></app-car-search>
+
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link"
              routerLink="/dashboard"
@@ -63,7 +69,7 @@
       </ul>
     </div>
   </nav>
-
+<div [ngStyle]="{'background-image': 'assets\cartrip.png'}"></div>
   <router-outlet></router-outlet>
   <app-messages></app-messages>
 </div>
