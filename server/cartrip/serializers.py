@@ -29,7 +29,7 @@ class BundleSerializer(serializers.ModelSerializer):
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
-        fields = ('text', 'post_date')
+        fields = ('author', 'title', 'text', 'post_date')
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment

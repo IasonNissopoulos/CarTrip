@@ -1,81 +1,39 @@
-<div class="container">
+<h2>Posts</h2>
 
-  <h3>Posts</h3>
+<div>
+  <form>
+    <div class="form-row">
+      <div class="col">
+        <input class="form-control" #postTitle placeholder="Post Title"/>
+      </div>
+      <div class="col">
+        <input class="form-control" #postText placeholder="Text"/>
+      </div>
 
+      <!-- (click) passes input valuetext
+post_dates to add() and then clears input -->
+        <button class="btn btn-primary"
+              (click)="add(postTitle.value, postText.value);
+                       postTitle.value='';
+                       postText.value=''">
+        Add
 
-  <div class="row justify-content-start" *ngIf="auth.isLoggedIn">
+      </button>
 
-    <div class="col-4">
-
-      <form (ngSubmit)="onSubmit()" #postForm="ngForm">
-
-
-        <div class="form-group">
-
-          <label for="title">Title</label>
-
-          <input type="text"
-
-                 class="form-control"
-
-                 id="title"
-
-                 [(ngModel)]="post.title"
-
-                 name="title"
-
-                 required>
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label for="text">Content</label>
-
-          <textarea class="form-control"
-
-                    rows="5"
-
-                    id="text"
-
-                    [(ngModel)]="post.text"
-
-                    name="text">
-
-            </textarea>
-
-        </div>
-
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-
-
-      </form>
 
     </div>
-
-  </div>
-
-
-  <div class="row justify-content-start">
-
-    <div class="col-4">
-
-      <ul>
-
-        <li *ngFor="let post of posts">
-
-          {{ post.title }}
-
-          {{ post.text }}
-
-        </li>
-
-      </ul>
-
-    </div>
-
-  </div>
-
+  </form>
 </div>
+
+<ul class="list-group posts">
+  <li class="list-group-item post" *ngFor="let post of posts">
+    <div class="post-item">
+     <a routerLink="/posts/{{post.id}}">
+       <span class="badge badge-secondary badge-pill">{{post.id}}</span>
+       {{post.title}}
+     </a>
+    </div>
+     <button class="btn btn-secondary" title="delete post"
+             (click)="delete(post)">x</button>
+   </li>
+</ul>

@@ -30,36 +30,41 @@
              routerLink="/cars"
              href="#">Cars</a>
         </li>
+        <li>
+            <div ngbDropdown class="d-inline-block">
+              <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Events</button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <a class="nav-link"
+                   routerLink="/excursions"
+                   href="#"><button class="dropdown-item">Excursions</button>
+                   <span class="sr-only">(current)</span></a>
+               <a class="nav-link"
+                  routerLink="/exhibitions"
+                  href="#"><button class="dropdown-item">Exhibitions</button>
+                  <span class="sr-only">(current)</span></a>
+                <a class="nav-link"
+                routerLink="/bundles"
+                href="#"><button class="dropdown-item">Bundles</button>
+                <span class="sr-only">(current)</span></a>
+              </div>
+            </div>
+        </li>
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link"
              routerLink="/engines"
              href="#">engines
             <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link"
-             routerLink="/exhibitions"
-             href="#">exhibitions
-            <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link"
-             routerLink="/excursions"
-             href="#">excursions
-            <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link"
-             routerLink="/bundles"
-             href="#">bundles
-            <span class="sr-only">(current)</span></a>
-        </li>
+
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link"
              routerLink="/posts"
              href="#">posts
             <span class="sr-only">(current)</span></a>
         </li>
+
+
+
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link"
              routerLink="/login"

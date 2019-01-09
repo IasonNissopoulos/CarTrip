@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
+from django.contrib.auth.models import User
 from django.db import models
 import datetime
 # reporter=1 article =many report goes into article so the field that is inside the other autos pou mpainei einai 1
@@ -61,12 +61,13 @@ class Bundle(models.Model) :
     #giver = models.ForeignKey(User, on_delete=models.CASCADE)
 
 class Post(models.Model) :
-    #author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.TextField(default='Title')
     text = models.TextField(default='Post')
     #likes = models.ManyToManyField(Like)
     post_date = models.DateTimeField(auto_now=True )
     def __str__(self):
-        return "%s %s" % (self.text, self.post_date)
+        return "%s %s %s" % (self.title, self.text, self.post_date)
 class Comment(models.Model) :
     #author = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)

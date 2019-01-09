@@ -1,88 +1,46 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ActivatedRoute, ParamMap } from '@angular/router';
-
-
-import 'rxjs/add/operator/switchMap';
-
-import 'rxjs/add/operator/do';
-
-
 import { Post } from '../post';
-
 import { PostService } from '../post.service';
 
-
-import { AuthService } from '../auth.service';
-
-
 @Component({
-
   selector: 'app-posts',
-
   templateUrl: './posts.component.html',
-
-  styleUrls: ['./posts.component.css'],
-
+  styleUrls: ['./posts.component.css']
 })
-
 export class PostsComponent implements OnInit {
 
+  posts : Post[];
 
-  posts: Post[];
-
-
-  post: Post;
-
-
-  constructor(
-
-    private route: ActivatedRoute,
-
-    private postService: PostService,
-
-    private auth: AuthService
-
-  ) { }
-
+  constructor(private postService: PostService) { }
 
   ngOnInit() {
-
-    this.route.paramMap
-
-      .switchMap((params: ParamMap) => {
-
-        return this.postService.getPosts(+params.get('id'))
-
-      }).subscribe(posts => this.posts = posts);
-
+    this.getPosts();
   }
 
-
-  newPost() : Post {
-
-    var post = new Post();
-
-    post.text = '';
-
-    return post;
-
+  getPosts(): void {
+    this.postService.getPosts()
+      .subscribe(posts => this.posts = posts);
   }
 
-
-  onSubmit() : void {
-
-    this.postService.addPost(this.post)
-
+  add(title: string, text: string): void {
+    title = title.trim();
+    text = text.trim();
+    if (!title || !text) { return; }
+    this.postService.addPost({ title, text } as Post)
       .subscribe(post => {
-
-        this.posts.unshift(post);
-
-        this.post = this.newPost();
-
+        // If the operation has failed, PostService's handleError()
+        // will have given an empty result; so we add to the
+        // posts array only if a non-empty result has been produced.
+        if (post) {
+          this.posts.push(post);
+        }
       });
-
   }
 
+  delete(post: Post): void {
+    this.posts = this.posts.filter(h => h !== post);
+    this.postService.deletePost(post).subscribe();
+  }
 
 }
