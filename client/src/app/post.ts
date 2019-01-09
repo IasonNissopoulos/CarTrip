@@ -1,7 +1,7 @@
 export class Post {
   id: number;
-  title: string;
   author: string;
+  title: string;
   text: string;
   post_date: string;
 }
