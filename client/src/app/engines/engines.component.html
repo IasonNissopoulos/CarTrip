@@ -1,3 +1,11 @@
-<p>
-  engines works!
-</p>
+<ul class="engines">
+  <li *ngFor="let engine of engines"
+      [class.selected]="engine === selectedEngine"
+      (click)="onSelect(engine)">
+    <span class="badge">{{engine.id}}</span> {{engine.title}}
+  </li>
+</ul>
+id
+title
+engine_cubic_centimeter
+engine_manufacturer
