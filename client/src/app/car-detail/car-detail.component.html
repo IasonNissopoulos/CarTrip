@@ -32,7 +32,7 @@
           <input class="form-control"
                  id="carCompany"
                  name="carCompany"
-                 #url="ngModel"
+                 #company="ngModel"
                  [(ngModel)]="car.company" placeholder="company" required/>
           <div [hidden]="company.valid || company.pristine"
                class="alert alert-danger">
@@ -58,12 +58,12 @@
         </div>
       </div>
       <div class="form-group row">
-        <label for="carColor" class="col-sm-1 col-form-label">color</label>
+        <label for="carColor" class="col-sm-1 col-form-label">Color</label>
         <div class="col-sm-4">
           <input class="form-control"
                  id="carColor"
                  name="carColor"
-                 #url="ngModel"
+                 #color="ngModel"
                  [(ngModel)]="car.color" placeholder="color" required/>
           <div [hidden]="color.valid || color.pristine"
                class="alert alert-danger">
@@ -73,12 +73,12 @@
       </div>
 
       <div class="form-group row">
-        <label for="carEngine" class="col-sm-1 col-form-label">engine</label>
+        <label for="carEngine" class="col-sm-1 col-form-label">Engine</label>
         <div class="col-sm-4">
           <input class="form-control"
                  id="carEngine"
                  name="carEngine"
-                 #url="ngModel"
+                 #engine="ngModel"
                  [(ngModel)]="car.engine" placeholder="engine" required/>
           <div [hidden]="engine.valid || engine.pristine"
                class="alert alert-danger">
@@ -93,7 +93,7 @@
           <input class="form-control"
                  id="carExtra_information"
                  name="carExtra_information"
-                 #url="ngModel"
+                 #extra_information="ngModel"
                  [(ngModel)]="car.extra_information" placeholder="extra_information" required/>
           <div [hidden]="extra_information.valid || extra_information.pristine"
                class="alert alert-danger">

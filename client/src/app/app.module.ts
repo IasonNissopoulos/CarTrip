@@ -21,10 +21,17 @@ import { ExcursionsComponent } from './excursions/excursions.component';
 import { BundlesComponent } from './bundles/bundles.component';
 import { PostsComponent } from './posts/posts.component';
 import { CommentsComponent } from './comments/comments.component';
+
+
+import { EngineDetailComponent } from './engine-detail/engine-detail.component';
 import { CarDetailComponent } from './car-detail/car-detail.component';
+
+
 import { PostService } from './post.service';
 import { CarService } from './car.service';
 import { MessageService } from './message.service';
+import { EngineService } from './engine.service';
+
 
 @NgModule({
   declarations: [
@@ -41,7 +48,8 @@ import { MessageService } from './message.service';
     BundlesComponent,
     PostsComponent,
     CommentsComponent,
-    CarDetailComponent
+    CarDetailComponent,
+    EngineDetailComponent
 
   ],
   imports: [

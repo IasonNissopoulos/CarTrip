@@ -1,11 +1,33 @@
+<h2>My Engines</h2>
 <ul class="engines">
   <li *ngFor="let engine of engines"
-      [class.selected]="engine === selectedEngine"
-      (click)="onSelect(engine)">
-    <span class="badge">{{engine.id}}</span> {{engine.title}}
+    [class.selected]="engine === selectedEngine"
+    (click)="onSelect(engine)">
+    <span class="badge">{{engine.title}}</span> {{engine.name}}
   </li>
 </ul>
-id
-title
-engine_cubic_centimeter
-engine_manufacturer
+
+<div *ngIf="selectedEngine">
+
+  <h2>{{selectedEngine.title | uppercase}} Details</h2>
+  <div><span>id: </span>{{selectedEngine.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedEngine.title" placeholder="name">
+    </label>
+
+  </div>
+  <div>
+    <label>Engine Cubic Centimeter:
+      <input [(ngModel)]="selectedEngine.engine_cubic_centimeter" placeholder="name">
+    </label>
+
+  </div>
+  <div>
+    <label>Engine manufacturer:
+      <input [(ngModel)]="selectedEngine.engine_manufacturer" placeholder="name">
+    </label>
+
+  </div>
+
+</div>

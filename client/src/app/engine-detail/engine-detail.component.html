@@ -1,0 +1,61 @@
+<div *ngIf="engine">
+  <h2>{{ engine.title }} details:</h2>
+  <div class="container">
+    <form #engineForm="ngForm">
+
+      <div class="form-group row">
+        <label for="engineId" class="col-sm-1 col-form-label">ID</label>
+        <div class="col-sm-4">
+          <input class="form-control-plaintext" type="text"
+                 id="engineId" placeholder={{engine.id}} readonly/>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="engineTitle" class="col-sm-1 col-form-label">Name of the Engine</label>
+        <div class="col-sm-4">
+          <input class="form-control"
+                 id="engineTitle"
+                 name="engineTitle"
+                 #title="ngModel"
+                 [(ngModel)]="engine.title" placeholder="title" required/>
+          <div [hidden]="title.valid || title.pristine"
+               class="alert alert-danger">
+            Engine Name is required
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="engine_cubic_centimeter" class="col-sm-1 col-form-label">Engine cubic centimeters</label>
+        <div class="col-sm-4">
+          <input class="form-control"
+                 id="engine_cubic_centimeter"
+                 name="engine_cubic_centimeter"
+                 #engine_cubic_centimeter="ngModel"
+                 [(ngModel)]="engine.engine_cubic_centimeter" placeholder="Engine cubic centimeters" required/>
+          <div [hidden]="engine_cubic_centimeter.valid || engine_cubic_centimeter.pristine"
+               class="alert alert-danger">
+            Engine cubic centimeters required
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="engine_manufacturer" class="col-sm-1 col-form-label">Engine manufacturer</label>
+        <div class="col-sm-4">
+          <input class="form-control"
+                 id="engine_manufacturer"
+                 name="engine_manufacturer"
+                 #engine_manufacturer="ngModel"
+                 [(ngModel)]="engine.engine_manufacturer" placeholder="engine_manufacturer" required/>
+          <div [hidden]="engine_manufacturer.valid || engine_manufacturer.pristine"
+               class="alert alert-danger">
+            Engine manufacturer required
+          </div>
+        </div>
+      </div>
+
+
+    </form>
+  </div>
+
+</div>
