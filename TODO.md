@@ -16,3 +16,15 @@
 ## Next_step :
   react_django_rest_framework :
   create views.py
+
+- django images
+- images
+- forms
+- engine in cars form
+- dont show forms if not logged in
+- modal for buying event
+- css - bootstrap
+
+
+
+

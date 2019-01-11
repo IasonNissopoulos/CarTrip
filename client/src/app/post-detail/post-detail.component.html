@@ -1,0 +1,60 @@
+<div *ngIf="post">
+  <h2>{{ post.title }} details:</h2>
+  <div class="container">
+    <form #postForm="ngForm">
+
+      <div class="form-group row">
+        <label for="postId" class="col-sm-1 col-form-label">ID</label>
+        <div class="col-sm-4">
+          <input class="form-control-plaintext" type="text"
+                 id="postId" placeholder={{post.id}} readonly/>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="postTitle" class="col-sm-1 col-form-label">Title</label>
+        <div class="col-sm-4">
+          <input class="form-control"
+                 id="postTitle"
+                 name="postTitle"
+                 #title="ngModel"
+                 [(ngModel)]="post.title" placeholder="title" required/>
+          <div [hidden]="title.valid || title.pristine"
+               class="alert alert-danger">
+            Title is required
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="text" class="col-sm-1 col-form-label">Text</label>
+        <div class="col-sm-4">
+          <input class="form-control"
+                 id="text"
+                 name="text"
+                 #text="ngModel"
+                 [(ngModel)]="post.text" placeholder="Post cubic centimeters" required/>
+          <div [hidden]="text.valid || text.pristine"
+               class="alert alert-danger">
+            Text is required
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="btn-toolbar" role="toolbar">
+          <div class="btn-group mr-2" role="group" aria-label="first group">
+            <button type="button" class="btn btn-secondary"
+                    (click)="goBack()">go back</button>
+          </div>
+          <div class="btn-group mr-2" role="group" aria-label="first group">
+            <button type="button" class="btn btn-primary"
+                    (click)="save()">Save</button>
+          </div>
+        </div>
+      </div>
+
+
+    </form>
+  </div>
+
+</div>

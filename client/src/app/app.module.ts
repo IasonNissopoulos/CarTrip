@@ -26,14 +26,15 @@ import { CommentsComponent } from './comments/comments.component';
 import { EngineDetailComponent } from './engine-detail/engine-detail.component';
 import { CarDetailComponent } from './car-detail/car-detail.component';
 import { ExcursionDetailComponent } from './excursion-detail/excursion-detail.component';
+import { ExhibitionDetailComponent } from './exhibition-detail/exhibition-detail.component';
+import { BundleDetailComponent } from './bundle-detail/bundle-detail.component';
+import { PostDetailComponent } from './post-detail/post-detail.component';
 
 
 import { PostService } from './post.service';
 import { CarService } from './car.service';
 import { MessageService } from './message.service';
 import { EngineService } from './engine.service';
-import { ExhibitionDetailComponent } from './exhibition-detail/exhibition-detail.component';
-import { BundleDetailComponent } from './bundle-detail/bundle-detail.component';
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import { BundleDetailComponent } from './bundle-detail/bundle-detail.component';
     ExcursionDetailComponent,
     ExhibitionDetailComponent,
     BundleDetailComponent,
+    PostDetailComponent,
 
   ],
   imports: [
