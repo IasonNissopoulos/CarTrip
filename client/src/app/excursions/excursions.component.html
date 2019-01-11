@@ -1,3 +1,13 @@
-<p>
-  excursions works!
-</p>
+<h2>Excursions</h2>
+
+<ul class="list-group excursions">
+  <li class="list-group-item excursion" *ngFor="let excursion of excursions">
+    <div class="excursion-item">
+     <a routerLink="/excursions/{{excursion.id}}">
+       <span class="badge badge-secondary badge-pill">{{excursion.id}}</span>
+       {{excursion.title}}
+     </a>
+    </div>
+
+   </li>
+</ul>

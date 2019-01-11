@@ -11,7 +11,6 @@ import {EngineService} from '../engine.service';
 export class EnginesComponent implements OnInit {
 
   engines : Engine[];
-  selectedEngine: Engine;
 
   constructor(private engineService: EngineService) { }
 
@@ -19,9 +18,7 @@ export class EnginesComponent implements OnInit {
     this.getEngines();
   }
 
-    onSelect(engine: Engine): void {
-    this.selectedEngine = engine;
-    }
+
     getEngines(): void {
       this.engineService.getEngines()
         .subscribe(engines => this.engines = engines);

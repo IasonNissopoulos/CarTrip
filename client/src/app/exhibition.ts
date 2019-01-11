@@ -1,4 +1,4 @@
-export class Book {
+export class Exhibition {
   id: number;
   title: string;
   pub_year: number;

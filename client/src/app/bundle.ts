@@ -3,6 +3,6 @@ export class Bundle {
   title: string;
   exhibitions: string;
   excursions: string;
-   date: string;
-   price: number;
+  date: string;
+  price: number;
 }

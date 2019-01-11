@@ -1,33 +1,40 @@
-<h2>My Engines</h2>
-<ul class="engines">
-  <li *ngFor="let engine of engines"
-    [class.selected]="engine === selectedEngine"
-    (click)="onSelect(engine)">
-    <span class="badge">{{engine.title}}</span> {{engine.name}}
-  </li>
-</ul>
+<h2>Engines</h2>
 
-<div *ngIf="selectedEngine">
-
-  <h2>{{selectedEngine.title | uppercase}} Details</h2>
-  <div><span>id: </span>{{selectedEngine.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="selectedEngine.title" placeholder="name">
-    </label>
-
-  </div>
-  <div>
-    <label>Engine Cubic Centimeter:
-      <input [(ngModel)]="selectedEngine.engine_cubic_centimeter" placeholder="name">
-    </label>
-
-  </div>
-  <div>
-    <label>Engine manufacturer:
-      <input [(ngModel)]="selectedEngine.engine_manufacturer" placeholder="name">
-    </label>
-
-  </div>
-
+<div>
+  <form>
+    <div class="form-row">
+      <div class="col">
+        <input class="form-control" #engineTitle placeholder="Engine Title"/>
+      </div>
+      <div class="col">
+        <input class="form-control" #engineEngine_Cubic_centimeter placeholder="Cubic Centimeters"/>
+      </div>
+      <div class="col">
+        <input class="form-control" #engineEngine_manufacturer
+               placeholder="manufacturer"/>
+      </div>
+      <!-- (click) passes input values to add() and then clears input -->
+      <button class="btn btn-primary"
+              (click)="add(engineTitle.value, engineUrl.value, enginePubDate.value);
+                       engineTitle.value='';
+                       engine_cubic_centimeter.value='';
+                       engine_manufacturer.value='';
+                       engineTitle.value=''">
+        Add
+      </button>
+    </div>
+  </form>
 </div>
+
+<ul class="list-group engines">
+  <li class="list-group-item engine" *ngFor="let engine of engines">
+    <div class="engine-item">
+     <a routerLink="/engines/{{engine.id}}">
+       <span class="badge badge-secondary badge-pill">{{engine.id}}</span>
+       {{engine.title}}
+     </a>
+    </div>
+     <button class="btn btn-secondary" title="delete engine"
+             (click)="delete(engine)">x</button>
+   </li>
+</ul>
