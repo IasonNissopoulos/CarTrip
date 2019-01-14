@@ -50,8 +50,8 @@ class Excursion(models.Model) :
         return self.title
 class Bundle(models.Model) :
     title = models.CharField(max_length=200, unique=True)
-    exhibitions = models.ManyToManyField(Exhibition, null=True, blank=True)
-    excursions = models.ManyToManyField(Excursion, null=True, blank=True)
+    exhibitions = models.ManyToManyField(Exhibition)
+    excursions = models.ManyToManyField(Excursion)
     date = models.DateTimeField('BundleDates')
     price = models.IntegerField('price', default=0)
     def __str__(self):
