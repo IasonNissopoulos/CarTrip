@@ -35,6 +35,7 @@ import { PostService } from './post.service';
 import { CarService } from './car.service';
 import { MessageService } from './message.service';
 import { EngineService } from './engine.service';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import { EngineService } from './engine.service';
     ExhibitionDetailComponent,
     BundleDetailComponent,
     PostDetailComponent,
+    HomeComponent,
 
   ],
   imports: [

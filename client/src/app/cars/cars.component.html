@@ -1,28 +1,31 @@
 <h2>Cars</h2>
-
-<div>
+<div class="fixed-bottom">
   <form>
-    <div class="form-row">
-      <div class="col">
+    <div class="form-group">
+      <div class="col-md-6">
         <input class="form-control" #carCompany placeholder="Car Company"/>
       </div>
-      <div class="col">
+      <div class="col-md-6">
         <input class="form-control" #carModel placeholder="Car model"/>
       </div>
-      <div class="col">
+      <div class="col-md-6">
         <input class="form-control" #carYear
                placeholder="Release Date"/>
       </div>
 
-      <div class="col">
+      <div class="col-md-6">
         <input class="form-control" #carColor
                placeholder="carColor"/>
       </div>
-      <div class="col">
+      <div class="col-md-6">
         <input class="form-control" #carEngine
                placeholder="Engine"/>
       </div>
-      <div class="col">
+      <div class="col-md-6">
+        <input type="file" class="form-control-file" #carImage
+               placeholder="Car Image"/>
+      </div>
+      <div class="col-md-6">
         <input class="form-control" #carExtra_information
                placeholder="Some Words"/>
       </div>
