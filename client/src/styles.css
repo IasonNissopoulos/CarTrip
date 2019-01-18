@@ -1,8 +1,6 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~font-awesome/css/font-awesome.css";
-html {
+
+body {
   background: url(assets/watercolor.jpg);
-}
-div {
-  background: (opacity: .5);
 }

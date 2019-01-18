@@ -10,6 +10,7 @@ import { BundlesComponent } from './bundles/bundles.component';
 import { PostsComponent } from './posts/posts.component';
 import { LoginComponent } from './login/login.component';
 import { CommentsComponent } from './comments/comments.component';
+import { HomeComponent } from './home/home.component';
 
 import { EngineDetailComponent } from './engine-detail/engine-detail.component';
 import { CarDetailComponent } from './car-detail/car-detail.component';
@@ -20,6 +21,7 @@ import { PostDetailComponent } from './post-detail/post-detail.component';
 
 
 const routes: Routes = [
+  { path : 'home', component: HomeComponent },
   { path : '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path : 'cars', component: CarsComponent },
   { path: 'cars/:id', component: CarDetailComponent },

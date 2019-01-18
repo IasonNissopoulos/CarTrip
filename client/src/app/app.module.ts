@@ -36,6 +36,7 @@ import { CarService } from './car.service';
 import { MessageService } from './message.service';
 import { EngineService } from './engine.service';
 import { HomeComponent } from './home/home.component';
+import { EngineSelectorComponent } from './engine-selector/engine-selector.component';
 
 
 @NgModule({
@@ -60,6 +61,7 @@ import { HomeComponent } from './home/home.component';
     BundleDetailComponent,
     PostDetailComponent,
     HomeComponent,
+    EngineSelectorComponent,
 
   ],
   imports: [
