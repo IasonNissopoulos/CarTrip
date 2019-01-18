@@ -6,6 +6,6 @@ export class Car {
   color: string;
   engine: string;
   extra_information: string;
-
+  image: image;
 /**  image: string; */
 }

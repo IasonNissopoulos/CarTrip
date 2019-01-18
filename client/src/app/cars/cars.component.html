@@ -26,6 +26,10 @@
                placeholder="Car Image"/>
       </div>
       <div class="col-md-6">
+        <input class="form-control" #carImage
+               placeholder="Car Image"/>
+      </div>
+      <div class="col-md-6">
         <input class="form-control" #carExtra_information
                placeholder="Some Words"/>
       </div>
@@ -37,6 +41,7 @@
                        carYear.value='';
                        carColor.value='';
                        carEngine.value='';
+                       carImage.value='';
                        carExtra_information.value='';
                        carModel.value=''">
         Add
@@ -44,16 +49,15 @@
     </div>
   </form>
 </div>
-
-<ul class="list-group cars">
-  <li class="list-group-item car" *ngFor="let car of cars">
-    <div class="car-item">
-     <a routerLink="/cars/{{car.id}}">
-       <span class="badge badge-secondary badge-pill">{{car.id}}</span>
-       {{car.model}}
-     </a>
-    </div>
-     <button class="btn btn-secondary" model="delete car"
-             (click)="delete(car)">x</button>
-   </li>
-</ul>
+<div class="container">
+  <ul class="list-group cars">
+    <li class="list-group-item car" *ngFor="let car of cars">
+      <div class="car-item">
+       <a routerLink="/cars/{{car.id}}">
+         <div>{{car.model}}</div>
+         {{car.image}}
+       </a>
+      </div>
+     </li>
+  </ul>
+</div>
