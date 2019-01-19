@@ -7,6 +7,8 @@ import { ExhibitionService }  from '../exhibition.service';
 
 import { Exhibition } from '../exhibition';
 
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-exhibition-detail',
@@ -16,11 +18,13 @@ import { Exhibition } from '../exhibition';
 export class ExhibitionDetailComponent implements OnInit {
 
   exhibition: Exhibition;
+  closeResult: string;
 
   constructor(
     private route: ActivatedRoute,
     private exhibitionService: ExhibitionService,
-    private location: Location
+    private location: Location,
+    private modalService: NgbModal
   ) { }
 
   ngOnInit(): void {
@@ -36,5 +40,23 @@ export class ExhibitionDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
+    open(content) {
+      this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+        this.closeResult = `Closed with: ${result}`;
+      }, (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      });
+    }
+
+    private getDismissReason(reason: any): string {
+      if (reason === ModalDismissReasons.ESC) {
+        return 'by pressing ESC';
+      } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+        return 'by clicking on a backdrop';
+      } else {
+        return  `with: ${reason}`;
+      }
+    }
 
 }

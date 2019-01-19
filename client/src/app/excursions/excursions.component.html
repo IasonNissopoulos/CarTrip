@@ -4,8 +4,11 @@
   <li class="list-group-item excursion" *ngFor="let excursion of excursions">
     <div class="excursion-item">
      <a routerLink="/excursions/{{excursion.id}}">
-       <span class="badge badge-secondary badge-pill">{{excursion.id}}</span>
-       {{excursion.title}}
+       <span class="badge badge-secondary badge-pill">{{excursion.title}}</span>
+       <p>The excursion will take place in {{excursion.location}}
+       during the {{excursion.date}}.</p>
+       <p>The cars there will be {{excursion.cars}}.</p>
+       <p>The fee will be {{excursion.price}}</p>
      </a>
     </div>
 

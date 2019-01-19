@@ -27,3 +27,4 @@
 - engine is a  custom input field that has
 - the first field is "add engine" that throws a modal that contains the engine form and :
 - shows every engine
+-add a starting and finishing date instead of date on excursion exhibition bundle

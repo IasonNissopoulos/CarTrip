@@ -1,7 +1,6 @@
 export class Exhibition {
   id: number;
   title: string;
-  pub_year: number;
   location: string;
   date: string;
   cars: string;
