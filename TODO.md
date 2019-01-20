@@ -28,3 +28,7 @@
 - the first field is "add engine" that throws a modal that contains the engine form and :
 - shows every engine
 -add a starting and finishing date instead of date on excursion exhibition bundle
+
+1. Dashboard gone
+2. Car Form correct and in a modal
+3. Car Details should show more details but they shouldnt be changeable

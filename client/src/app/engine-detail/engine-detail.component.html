@@ -26,14 +26,14 @@
         </div>
       </div>
       <div class="form-group row">
-        <label for="engine_cubic_centimeter" class="col-sm-1 col-form-label">Engine cubic centimeters</label>
+        <label for="engine_cubic_centimeters" class="col-sm-1 col-form-label">Engine cubic centimeters</label>
         <div class="col-sm-4">
           <input class="form-control"
-                 id="engine_cubic_centimeter"
-                 name="engine_cubic_centimeter"
-                 #engine_cubic_centimeter="ngModel"
-                 [(ngModel)]="engine.engine_cubic_centimeter" placeholder="Engine cubic centimeters" required/>
-          <div [hidden]="engine_cubic_centimeter.valid || engine_cubic_centimeter.pristine"
+                 id="engine_cubic_centimeters"
+                 name="engine_cubic_centimeters"
+                 #engine_cubic_centimeters="ngModel"
+                 [(ngModel)]="engine.engine_cubic_centimeters" placeholder="Engine cubic centimeters" required/>
+          <div [hidden]="engine_cubic_centimeters.valid || engine_cubic_centimeters.pristine"
                class="alert alert-danger">
             Engine cubic centimeters required
           </div>

@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { CarService }  from '../car.service';
+import { AuthService } from '../auth.service';
 
 import { Car } from '../car';
 @Component({
@@ -18,7 +19,9 @@ export class CarDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private carService: CarService,
-    private location: Location
+    private location: Location,
+    private auth: AuthService
+
   ) { }
 
   ngOnInit(): void {
