@@ -1,52 +1,63 @@
 <h2>Cars</h2>
-<div class="fixed-bottom">
-  <form>
-    <div class="form-group">
-      <div class="col-md-6">
-        <input class="form-control" #carCompany placeholder="Car Company"/>
-      </div>
-      <div class="col-md-6">
-        <input class="form-control" #carModel placeholder="Car model"/>
-      </div>
-      <div class="col-md-6">
-        <input class="form-control" #carYear
-               placeholder="Release Date"/>
-      </div>
+<span [ngSwitch]="auth.isLoggedIn">
+  <span *ngSwitchCase="true">
+    <div class="fixed-bottom">
+      <form>
+        <div class="form-group">
+          <div class="col-md-6">
+            <input class="form-control" #carCompany placeholder="Car Company"/>
+          </div>
+          <div class="col-md-6">
+            <input class="form-control" #carModel placeholder="Car model"/>
+          </div>
+          <div class="col-md-6">
+            <input class="form-control" #carYear
+                   placeholder="Release Date"/>
+          </div>
 
-      <div class="col-md-6">
-        <input class="form-control" #carColor
-               placeholder="carColor"/>
-      </div>
-      <div class="col-md-6">
-        <input class="form-control" #carEngine
-               placeholder="Engine"/>
-      </div>
-      <div class="col-md-6">
+          <div class="col-md-6">
+            <input class="form-control" #carColor
+                   placeholder="carColor"/>
+          </div>
+          <div class="col-md-6">
 
-        <input type="file" class="form-control-file" #carImage
-               placeholder="Car Image"/>
-      </div>
+                <select class="form-control" #carEngine>
 
-      <div class="col-md-6">
-        <input class="form-control" #carExtra_information
-               placeholder="Some Words"/>
-      </div>
-      <!-- (click) passes input values to add() and then clears input -->
-      <button class="btn btn-primary"
-              (click)="add(carCompany.value, carModel.value, carYear.value, carColor.value, carEngine.value, carExtra_information.value );
-                       carCompany.value='';
-                       carModel.value='';
-                       carYear.value='';
-                       carColor.value='';
-                       carEngine.value='';
-                       carImage.value='';
-                       carExtra_information.value='';
-                       carModel.value=''">
-        Add
-      </button>
+                    <option value="">--------</option>
+                    <option value="2">1</option>
+                    <option value="3">Engine1</option>
+                    <option value="4">Engine2</option>
+                    <option value="5" selected="">Roadsterr</option>
+                </select>
+          </div>
+          <div class="col-md-6">
+
+            <input type="file" class="form-control-file" #carImage
+                   placeholder="Car Image"/>
+          </div>
+
+          <div class="col-md-6">
+            <input class="form-control" #carExtra_information
+                   placeholder="Some Words"/>
+          </div>
+          <!-- (click) passes input values to add() and then clears input -->
+          <button class="btn btn-primary"
+                  (click)="add(carCompany.value, carModel.value, carYear.value, carColor.value, carEngine.value, carExtra_information.value );
+                           carCompany.value='';
+                           carModel.value='';
+                           carYear.value='';
+                           carColor.value='';
+                           carEngine.value='';
+                           carImage.value='';
+                           carExtra_information.value='';
+                           carModel.value=''">
+            Add
+          </button>
+        </div>
+      </form>
     </div>
-  </form>
-</div>
+  </span>
+
 <div class="container">
   <ul class="list-group cars">
     <li class="list-group-item car" *ngFor="let car of cars">

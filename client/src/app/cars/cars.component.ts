@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Car } from '../car';
 import {CarService} from '../car.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-cars',
@@ -12,7 +13,12 @@ export class CarsComponent implements OnInit {
 
   cars : Car[];
 
-  constructor(private carService: CarService) { }
+
+
+  constructor(private carService: CarService,
+              private auth: AuthService
+
+) { }
 
   ngOnInit() {
     this.getCars();

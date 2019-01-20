@@ -11,12 +11,8 @@
 ## Forms :
   1. Φορμα εισαγωγης αμαξιων
   2. Φορμα εισαγωγης post
-  3. Φορμα εισαγωγης bundle
-  4. Φορμα εισαγωγης
-## Next_step :
-  react_django_rest_framework :
-  create views.py
 
+## Next_step :
 - django images
 - images
 - forms
@@ -29,6 +25,5 @@
 - shows every engine
 -add a starting and finishing date instead of date on excursion exhibition bundle
 
-1. Dashboard gone
+1.
 2. Car Form correct and in a modal
-3. Car Details should show more details but they shouldnt be changeable
