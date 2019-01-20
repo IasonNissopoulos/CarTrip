@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { CarsComponent } from './cars/cars.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { EnginesComponent } from './engines/engines.component';
 import { ExhibitionsComponent } from './exhibitions/exhibitions.component';
 import { ExcursionsComponent } from './excursions/excursions.component';
@@ -22,10 +21,9 @@ import { PostDetailComponent } from './post-detail/post-detail.component';
 
 const routes: Routes = [
   { path : 'home', component: HomeComponent },
-  { path : '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path : '', redirectTo: '/home', pathMatch: 'full' },
   { path : 'cars', component: CarsComponent },
   { path: 'cars/:id', component: CarDetailComponent },
-  { path : 'dashboard', component: DashboardComponent },
   { path: 'engines', component: EnginesComponent },
   { path: 'engines/:id', component: EngineDetailComponent },
   { path: 'login', component: LoginComponent },

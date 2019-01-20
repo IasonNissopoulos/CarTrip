@@ -11,7 +11,6 @@ import { AppComponent } from './app.component';
 import { CarsComponent } from './cars/cars.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { MessagesComponent } from './messages/messages.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { CarSearchComponent } from './car-search/car-search.component';
 import { LoginComponent } from './login/login.component';
 import { EnginesComponent } from './engines/engines.component';
@@ -43,7 +42,6 @@ import { HomeComponent } from './home/home.component';
     AppComponent,
     CarsComponent,
     MessagesComponent,
-    DashboardComponent,
     CarSearchComponent,
     LoginComponent,
     EnginesComponent,
