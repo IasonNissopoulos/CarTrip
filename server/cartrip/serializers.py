@@ -10,6 +10,11 @@ class LocationSerializer(serializers.ModelSerializer):
         model = Location
         fields = ('id', 'location_address','map_location')
 class CarSerializer(serializers.ModelSerializer):
+    engine = serializers.SlugRelatedField(
+        read_only=True,
+        slug_field='title'
+     )
+
     class Meta:
         model = Car
         fields = ('id', 'company','model', 'year', 'color', 'engine', 'extra_information', 'image')
