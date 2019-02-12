@@ -1,24 +1,18 @@
 <h2>Cars</h2>
-<span [ngSwitch]="auth.isLoggedIn">
-  <span *ngSwitchCase="true">
-    <div class="fixed-bottom">
 
-    </div>
-  </span>
 
-  <div class="container">
-    <ul class="list-group cars">
-      <li class="list-group-item car" *ngFor="let car of cars">
-        <div class="car-item">
-          <a routerLink="/cars/{{car.id}}">
-            <div>{{car.model}}</div>
-            {{car.image}}
-          </a>
-        </div>
-      </li>
-    </ul>
-  </div>
-
+<div class="container">
+  <ul class="list-group cars">
+    <li class="list-group-item car" *ngFor="let car of cars">
+      <div class="car-item">
+        <a routerLink="/cars/{{car.id}}">
+          <div>{{car.model}}</div>
+          {{car.image}}
+        </a>
+      </div>
+    </li>
+  </ul>
+  <div *ngIf =auth.isLoggedIn>
   <ng-template #content let-modal>
     <div class="modal-header">
       <h4 class="modal-title" id="modal-basic-title">Add a Car</h4>
@@ -32,21 +26,21 @@
           <!-- You can make it whatever width you want. I'm making it full width
           on <= small devices and 4/12 page width on >= medium devices -->
           <div class="form-group">
-            <div class="col-md-6">
+            <div class="col-md-12">
               <input class="form-control" #carCompany placeholder="Car Company"/>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-12">
               <input class="form-control" #carModel placeholder="Car model"/>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-12">
               <input class="form-control" #carYear
               placeholder="Release Date"/>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-12">
               <input class="form-control" #carColor
               placeholder="carColor"/>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-12">
               <select class="form-control" #carEngine>
 
                 <option value="">--------</option>
@@ -56,13 +50,13 @@
                 <option value="5" selected="">Roadsterr</option>
               </select>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-12">
 
               <input type="file" class="form-control-file" #carImage
               placeholder="Car Image"/>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-12">
               <input class="form-control" #carExtra_information
               placeholder="Some Words"/>
             </div>
@@ -92,3 +86,4 @@
   <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Add</button>
 
   <pre>{{closeResult}}</pre>
+</div>
