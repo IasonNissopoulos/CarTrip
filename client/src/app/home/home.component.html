@@ -1,1 +1,15 @@
- <h1 class="title">Home Page!</h1>
+<ngb-carousel *ngIf="images" [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
+  <ng-template ngbSlide *ngFor="let image of images">
+    <img [src]="image" alt="Random slide">
+    <div class="carousel-caption">
+      <h3>WELCOME TO CAR TRIP</h3>
+      <p>This is a site about car lovers</p>
+    </div>
+  </ng-template>
+</ngb-carousel>
+
+<hr>
+<div class="btn-group" role="group" aria-label="Carousel toggle controls">
+  <button type="button" (click)="showNavigationArrows = !showNavigationArrows" class="btn btn-outline-dark btn-sm">Toggle navigation arrows</button>
+  <button type="button" (click)="showNavigationIndicators = !showNavigationIndicators" class="btn btn-outline-dark btn-sm">Toggle navigation indicators</button>
+</div>
