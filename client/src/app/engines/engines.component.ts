@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Engine } from '../engine';
 import {EngineService} from '../engine.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-engines',
@@ -12,7 +13,9 @@ export class EnginesComponent implements OnInit {
 
   engines : Engine[];
 
-  constructor(private engineService: EngineService) { }
+  constructor(private engineService: EngineService,
+    private auth: AuthService,
+  ) { }
 
   ngOnInit() {
     this.getEngines();

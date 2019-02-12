@@ -1,29 +1,30 @@
 <h2>Engines</h2>
-
-<div>
-  <form>
-    <div class="form-row">
-      <div class="col">
-        <input class="form-control" #engineTitle placeholder="Engine Title"/>
+<div *ngIf="auth.isLoggedIn">
+  <div>
+    <form>
+      <div class="form-row">
+        <div class="col">
+          <input class="form-control" #engineTitle placeholder="Engine Title"/>
+        </div>
+        <div class="col">
+          <input class="form-control" #engineEngine_cubic_centimeters placeholder="Cubic Centimeters"/>
+        </div>
+        <div class="col">
+          <input class="form-control" #engineEngine_manufacturer
+                 placeholder="manufacturer"/>
+        </div>
+        <!-- (click) passes input values to add() and then clears input -->
+        <button class="btn btn-primary"
+                (click)="add(engineTitle.value, engineEngine_cubic_centimeters.value, engineEngine_manufacturer.value);
+                         engineTitle.value='';
+                         engineEngine_cubic_centimeters.value='';
+                         engineEngine_manufacturer.value='';
+                         engineTitle.value=''">
+          Add
+        </button>
       </div>
-      <div class="col">
-        <input class="form-control" #engineEngine_cubic_centimeters placeholder="Cubic Centimeters"/>
-      </div>
-      <div class="col">
-        <input class="form-control" #engineEngine_manufacturer
-               placeholder="manufacturer"/>
-      </div>
-      <!-- (click) passes input values to add() and then clears input -->
-      <button class="btn btn-primary"
-              (click)="add(engineTitle.value, engineEngine_cubic_centimeters.value, engineEngine_manufacturer.value);
-                       engineTitle.value='';
-                       engineEngine_cubic_centimeters.value='';
-                       engineEngine_manufacturer.value='';
-                       engineTitle.value=''">
-        Add
-      </button>
-    </div>
-  </form>
+    </form>
+  </div>
 </div>
 
 
