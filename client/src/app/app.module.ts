@@ -28,13 +28,15 @@ import { ExcursionDetailComponent } from './excursion-detail/excursion-detail.co
 import { ExhibitionDetailComponent } from './exhibition-detail/exhibition-detail.component';
 import { BundleDetailComponent } from './bundle-detail/bundle-detail.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
+import { HomeComponent } from './home/home.component';
 
 
 import { PostService } from './post.service';
 import { CarService } from './car.service';
 import { MessageService } from './message.service';
 import { EngineService } from './engine.service';
-import { HomeComponent } from './home/home.component';
+import { AuthService } from './auth.service';
+
 
 
 @NgModule({

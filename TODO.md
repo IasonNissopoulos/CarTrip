@@ -25,5 +25,6 @@
 - shows every engine
 -add a starting and finishing date instead of date on excursion exhibition bundle
 
-1.
-2. Car Form correct and in a modal
+1. πρεπει να καταλαβω πως μπορω να στειλω foreign keys.
+2. πρεπει να δω πως θα σερβιρω τις εικονες.
+3. πρεπει ο χρηστης να μπορει να αλλαξει δεδομενα στο detail μονο οταν αυτος εχει κανει post.

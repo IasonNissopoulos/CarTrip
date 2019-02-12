@@ -43,4 +43,6 @@ export class CarDetailComponent implements OnInit {
     this.location.back();
   }
 
+
+
 }

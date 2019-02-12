@@ -20,7 +20,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AuthService {
-
+  username: string = null;
   isLoggedIn: boolean = false;
 
   constructor(private http: HttpClient) { }
@@ -35,6 +35,7 @@ export class AuthService {
             localStorage.setItem('cartripfrontend-jwt-access-token',
                                  results['access']);
             this.isLoggedIn = true;
+            this.username = username;
             if (results['refresh']) {
               localStorage.setItem('catripfrontend-jwt-refresh-token',
                                    results['refresh']);
