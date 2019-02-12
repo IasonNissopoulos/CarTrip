@@ -17,6 +17,7 @@ class Location(models.Model) :
     map_location = models.CharField(max_length=200)
 
 class Car(models.Model) :
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     company = models.CharField(max_length=200)
     model = models.CharField(max_length=200)
     year = models.IntegerField('year', default=0)
@@ -61,7 +62,7 @@ class Bundle(models.Model) :
     #giver = models.ForeignKey(User, on_delete=models.CASCADE)
 
 class Post(models.Model) :
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
     title = models.TextField(default='Title')
     text = models.TextField(default='Post')
     #likes = models.ManyToManyField(Like)
@@ -69,7 +70,9 @@ class Post(models.Model) :
     def __str__(self):
         return "%s %s %s" % (self.title, self.text, self.post_date)
 class Comment(models.Model) :
-    #author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     comment_text = models.TextField(default='Comment')
     comment_date = models.DateTimeField(auto_now=True)
+    def __str__(self):
+        return "%s %s %s" % (self.comment_text, self.post_date)

@@ -14,10 +14,13 @@ class CarSerializer(serializers.ModelSerializer):
         read_only=True,
         slug_field='title'
      )
-
+    owner = serializers.SlugRelatedField(
+        read_only=True,
+        slug_field='username'
+    )
     class Meta:
         model = Car
-        fields = ('id', 'company','model', 'year', 'color', 'engine', 'extra_information', 'image')
+        fields = ('id','owner', 'company','model', 'year', 'color', 'engine', 'extra_information', 'image')
 class ExhibitionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Exhibition
@@ -36,6 +39,10 @@ class PostSerializer(serializers.ModelSerializer):
         model = Post
         fields = ('id', 'author', 'title', 'text', 'post_date')
 class CommentSerializer(serializers.ModelSerializer):
+    post = serializers.SlugRelatedField(
+        read_only=True,
+        slug_field='id'
+    )
     class Meta:
         model = Comment
-        fields = ('id', 'post', 'comment_text', 'comment_date')
+        fields = ('id', 'author', 'post', 'comment_text', 'comment_date')

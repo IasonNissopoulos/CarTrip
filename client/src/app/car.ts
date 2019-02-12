@@ -1,5 +1,6 @@
 export class Car {
   id: number;
+  owner: string;
   company: string;
   model: string;
   year: number;
