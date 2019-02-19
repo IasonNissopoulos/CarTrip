@@ -12,7 +12,7 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 export class HomeComponent {
   showNavigationArrows = false;
   showNavigationIndicators = false;
-  images = ['../assets/car-3046424_1280.jpg', '../assets/car-repair-362150_1280.jpg', '../assets/vw-camper-336606_1280.jpg']
+  images = ['../assets/car-3046424_1280.jpg', '../assets/car-repair-362150_1280.jpg', '../assets/vintage-car-852239_1280.jpg']
 
   constructor(config: NgbCarouselConfig, private _http: HttpClient) {
     // customize default values of carousels used by this component tree
