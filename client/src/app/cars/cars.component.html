@@ -1,18 +1,6 @@
 <h2>Cars</h2>
 
-
-<div class="container">
-  <ul class="list-group cars">
-    <li class="list-group-item car" *ngFor="let car of cars">
-      <div class="car-item">
-        <a routerLink="/cars/{{car.id}}">
-          <div>{{car.model}}</div>
-          {{car.image}}
-        </a>
-      </div>
-    </li>
-  </ul>
-  <div *ngIf =auth.isLoggedIn>
+<div *ngIf =auth.isLoggedIn>
   <ng-template #content let-modal>
     <div class="modal-header">
       <h4 class="modal-title" id="modal-basic-title">Add a Car</h4>
@@ -41,19 +29,15 @@
               placeholder="carColor"/>
             </div>
             <div class="col-md-12">
-              <select class="form-control" #carEngine>
-
-                <option value="">--------</option>
-                <option value="2">1</option>
-                <option value="3">Engine1</option>
-                <option value="4">Engine2</option>
-                <option value="5" selected="">Roadsterr</option>
-              </select>
+              <label>Engine</label>
+              <div *ngIf="engine != null">
+                <select [(ngModel)]="engine.title">
+                  <option *ngFor="let x of titles" [ngValue]="x" >{{x.title}}</option>
+                </select>
+              </div>
             </div>
-            <div class="col-md-12">
-
-              <input type="file" class="form-control-file" #carImage
-              placeholder="Car Image"/>
+            <div>
+              <input type="file" multiple (change)="fileChange(input)" #input />
             </div>
 
             <div class="col-md-12">
@@ -74,16 +58,16 @@
             Add
           </button>
         </div>
-        </div>
-      </form>
-    </div>
+      </div>
+    </form>
+  </div>
 
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
-    </div>
-  </ng-template>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+  </div>
+</ng-template>
 
-  <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Add</button>
+<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Add</button>
 
-  <pre>{{closeResult}}</pre>
+<pre>{{closeResult}}</pre>
 </div>

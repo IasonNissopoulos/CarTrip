@@ -1,13 +1,12 @@
-<h2>Exhibitions</h2>
-
-<ul class="list-group exhibitions">
-  <li class="list-group-item exhibition" *ngFor="let exhibition of exhibitions">
-    <div class="exhibition-item">
-     <a routerLink="/exhibitions/{{exhibition.id}}">
-       <span class="badge badge-secondary badge-pill">{{exhibition.id}}</span>
-       {{exhibition.title}}
-     </a>
-    </div>
-
-   </li>
-</ul>
+<div class="container">
+  <h2>Exhibitions</h2>
+  <ul class="list-group exhibitions">
+    <li class="list-group-item exhibition" *ngFor="let exhibition of exhibitions">
+      <div class="exhibition-item">
+        <a routerLink="/exhibitions/{{exhibition.id}}">
+          <h5>{{exhibition.title}}</h5>
+        </a>
+      </div>
+    </li>
+  </ul>
+</div>

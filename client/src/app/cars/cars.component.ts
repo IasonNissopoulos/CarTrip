@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Car } from '../car';
 import {CarService} from '../car.service';
 import { AuthService } from '../auth.service';
-
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import {EngineService} from '../engine.service';
 
 @Component({
   selector: 'app-cars',
@@ -19,12 +18,12 @@ export class CarsComponent implements OnInit {
 
   constructor(private carService: CarService,
     private auth: AuthService,
-    private modalService: NgbModal
-
+    private modalService: NgbModal,
   ) { }
 
   ngOnInit() {
     this.getCars();
+
   }
 
   getCars(): void {
@@ -72,6 +71,26 @@ export class CarsComponent implements OnInit {
       return  `with: ${reason}`;
     }
   }
+  fileChange(input): void {
+    this.readFiles(input.files);
+  }
 
+  readFile(file: File, reader: FileReader, callback): void {
+    reader.onload = () => {
+      callback(reader.result);
+    }
+    reader.readAsDataURL(file);
+  }
+
+  readFiles(files: FileList, index=0): void {
+    let reader = new FileReader();
+
+    if (index in files) {
+      this.readFile(files[index], reader, (result) => {
+        this.readFiles(files, index+1);
+      });
+    }
+
+  }
 
 }

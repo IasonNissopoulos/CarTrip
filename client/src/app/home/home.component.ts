@@ -9,8 +9,7 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
   providers: [NgbCarouselConfig]  // add NgbCarouselConfig to the component providers
 
 })
-export class HomeComponent implements OnInit {
-
+export class HomeComponent {
   showNavigationArrows = false;
   showNavigationIndicators = false;
   images = ['../assets/car-3046424_1280.jpg', '../assets/car-repair-362150_1280.jpg', '../assets/vw-camper-336606_1280.jpg']

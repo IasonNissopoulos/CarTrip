@@ -30,7 +30,7 @@ const routes: Routes = [
   { path: 'exhibitions', component: ExhibitionsComponent },
   { path: 'exhibitions/:id', component: ExhibitionDetailComponent },
   { path: 'excursions', component: ExcursionsComponent },
-  { path: 'ecursions/:id', component: ExcursionDetailComponent },
+  { path: 'excursions/:id', component: ExcursionDetailComponent },
   { path: 'bundles', component: BundlesComponent },
   { path: 'bundles/:id', component: BundleDetailComponent },
   { path: 'posts', component: PostsComponent },

@@ -8,8 +8,10 @@ import { AuthService } from './auth.service';
 })
 export class AppComponent {
   title = 'Welcome to Your Car Trip';
+  username = 'null';
 
+  constructor(private auth: AuthService) {
+    this.username = auth.username;
 
-  constructor(private auth: AuthService) {}
-    username = 'auth.username';
+  }
 }

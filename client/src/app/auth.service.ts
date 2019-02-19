@@ -35,7 +35,7 @@ export class AuthService {
             localStorage.setItem('cartripfrontend-jwt-access-token',
                                  results['access']);
             this.isLoggedIn = true;
-            this.username = username;
+            username = username;
             if (results['refresh']) {
               localStorage.setItem('catripfrontend-jwt-refresh-token',
                                    results['refresh']);
