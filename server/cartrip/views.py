@@ -4,6 +4,8 @@ from rest_framework import generics
 
 from django.contrib.staticfiles import views
 
+from rest_framework import permissions
+
 def index(request):
     return views.serve(request, 'index.html')
 
