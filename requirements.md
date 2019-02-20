@@ -1,0 +1,4 @@
+Django 
+Djangorestframework
+rest_framework_simplejwt
+Pillow
