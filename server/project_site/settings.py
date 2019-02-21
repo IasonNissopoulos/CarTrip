@@ -132,3 +132,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'contentfeed')
 ATOMIC_REQUESTS = True
+
+try:
+    from .site_config import *
+except ImportError as ex:
+    print(ex)
+    pass

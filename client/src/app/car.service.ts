@@ -74,7 +74,7 @@ export class CarService {
       // if not search term, return empty car array.
       return of([]);
     }
-    return this.http.get<Car[]>(`api/cars/?title=${term}`).pipe(
+    return this.http.get<Car[]>(`api/cars/?model=${term}`).pipe(
       tap(_ => this.log(`found cars matching "${term}"`)),
       catchError(this.handleError<Car[]>('searchCars', []))
     );
