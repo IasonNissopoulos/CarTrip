@@ -1,8 +1,8 @@
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'djbr',
-        'USER': 'djbr_user',
+        'NAME': 'cartrip',
+        'USER': 'cartrip_user',
         'PASSWORD': '!f3Dx5hAGLW',
         'HOST': '127.0.0.1',
         'OPTIONS': {
