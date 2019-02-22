@@ -4,6 +4,8 @@ import {CarService} from '../car.service';
 import { AuthService } from '../auth.service';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {EngineService} from '../engine.service';
+import { Engine } from '../engine';
+import { EnginesComponent } from '../engines/engines.component';
 
 @Component({
   selector: 'app-cars',
@@ -15,10 +17,10 @@ export class CarsComponent implements OnInit {
   cars : Car[];
   closeResult: string;
 
-
   constructor(private carService: CarService,
     private auth: AuthService,
     private modalService: NgbModal,
+    private engineService: EngineService,
   ) { }
 
   ngOnInit() {
@@ -30,15 +32,23 @@ export class CarsComponent implements OnInit {
     this.carService.getCars()
     .subscribe(cars => this.cars = cars);
   }
-  add(company: string,  model: string, yearStr: string, color:string, engine:string, extra_information:string): void {
+  add(company: string,  model: string, yearStr: string, color: string, extra_information: string, engineTitle: string, cubic_centimeters: number, manufacturer: string): void {
     company = company.trim();
     model = model.trim();
     color = color.trim();
-    engine = engine.trim();
     extra_information = extra_information.trim();
+    let engine = engineTitle.trim();
+    let title = engineTitle.trim();
+    manufacturer=manufacturer.trim();
     let year = +yearStr;
-    if (!company || !model || !color || !engine || !extra_information || !year) { return; }
-    this.carService.addCar({ company, model, color, engine, extra_information, year } as Car)
+    if (!company || !model || !color || !extra_information || !year || !engineTitle|| !cubic_centimeters|| !manufacturer) { return; }
+    /**this.engineService.addEngine({title, cubic_centimeters, manufacturer } as Engine)
+    .subscribe(engine => {
+      if(engine) {
+        this.engine.push(engine);
+      }
+    });*/
+    this.carService.addCar({company, model, year, color, engine, extra_information } as Car)
     .subscribe(car => {
       // If the operation has failed, CarService's handleError()
       // will have given an empty result; so we add to the
@@ -47,6 +57,7 @@ export class CarsComponent implements OnInit {
         this.cars.push(car);
       }
     });
+
   }
 
   delete(car: Car): void {

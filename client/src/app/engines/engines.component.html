@@ -9,18 +9,18 @@
             <input class="form-control" #engineTitle placeholder="Engine Title"/>
           </div>
           <div class="col">
-            <input class="form-control" #engineEngine_cubic_centimeters placeholder="Cubic Centimeters"/>
+            <input class="form-control" #enginecubic_centimeters placeholder="Cubic Centimeters"/>
           </div>
           <div class="col">
-            <input class="form-control" #engineEngine_manufacturer
+            <input class="form-control" #enginemanufacturer
             placeholder="manufacturer"/>
           </div>
           <!-- (click) passes input values to add() and then clears input -->
           <button class="btn btn-primary"
-          (click)="add(engineTitle.value, engineEngine_cubic_centimeters.value, engineEngine_manufacturer.value);
+          (click)="add(engineTitle.value, enginecubic_centimeters.value, enginemanufacturer.value);
           engineTitle.value='';
-          engineEngine_cubic_centimeters.value='';
-          engineEngine_manufacturer.value='';
+          enginecubic_centimeters.value='';
+          enginemanufacturer.value='';
           engineTitle.value=''">
           Add
         </button>

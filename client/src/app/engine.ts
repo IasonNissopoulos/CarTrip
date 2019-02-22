@@ -1,6 +1,6 @@
 export class Engine {
   id: number;
   title: string;
-  engine_cubic_centimeters: number;
-  engine_manufacturer: string;
+  cubic_centimeters: number;
+  manufacturer: string;
 }

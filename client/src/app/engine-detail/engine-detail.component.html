@@ -26,28 +26,28 @@
         </div>
       </div>
       <div class="form-group row">
-        <label for="engine_cubic_centimeters" class="col-sm-1 col-form-label">Engine cubic centimeters</label>
+        <label for="cubic_centimeters" class="col-sm-1 col-form-label">Engine cubic centimeters</label>
         <div class="col-sm-4">
           <input class="form-control"
-                 id="engine_cubic_centimeters"
-                 name="engine_cubic_centimeters"
-                 #engine_cubic_centimeters="ngModel"
-                 [(ngModel)]="engine.engine_cubic_centimeters" placeholder="Engine cubic centimeters" required/>
-          <div [hidden]="engine_cubic_centimeters.valid || engine_cubic_centimeters.pristine"
+                 id="cubic_centimeters"
+                 name="cubic_centimeters"
+                 #cubic_centimeters="ngModel"
+                 [(ngModel)]="engine.cubic_centimeters" placeholder="Engine cubic centimeters" required/>
+          <div [hidden]="cubic_centimeters.valid || cubic_centimeters.pristine"
                class="alert alert-danger">
             Engine cubic centimeters required
           </div>
         </div>
       </div>
       <div class="form-group row">
-        <label for="engine_manufacturer" class="col-sm-1 col-form-label">Engine manufacturer</label>
+        <label for="manufacturer" class="col-sm-1 col-form-label">Engine manufacturer</label>
         <div class="col-sm-4">
           <input class="form-control"
-                 id="engine_manufacturer"
-                 name="engine_manufacturer"
-                 #engine_manufacturer="ngModel"
-                 [(ngModel)]="engine.engine_manufacturer" placeholder="engine_manufacturer" required/>
-          <div [hidden]="engine_manufacturer.valid || engine_manufacturer.pristine"
+                 id="manufacturer"
+                 name="manufacturer"
+                 #manufacturer="ngModel"
+                 [(ngModel)]="engine.manufacturer" placeholder="manufacturer" required/>
+          <div [hidden]="manufacturer.valid || manufacturer.pristine"
                class="alert alert-danger">
             Engine manufacturer required
           </div>

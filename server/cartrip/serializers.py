@@ -4,7 +4,7 @@ from .models import Engine, Location, Car, Exhibition, Excursion, Bundle, Post, 
 class EngineSerializer(serializers.ModelSerializer):
     class Meta:
         model = Engine
-        fields = ('id', 'title', 'engine_cubic_centimeters', 'engine_manufacturer')
+        fields = ('id', 'title', 'cubic_centimeters', 'manufacturer')
 class LocationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Location
@@ -14,13 +14,15 @@ class CarSerializer(serializers.ModelSerializer):
         read_only=True,
         slug_field='title'
      )
-    owner = serializers.SlugRelatedField(
-        read_only=True,
-        slug_field='username'
-    )
+    #owner = serializers.SlugRelatedField(
+
+    #    read_only=True,
+    #    slug_field='username'
+    #)
     class Meta:
         model = Car
-        fields = ('id','owner', 'company','model', 'year', 'color', 'engine', 'extra_information', 'image')
+        fields = ('id', 'company','model', 'year', 'color', 'engine', 'extra_information'#, 'image'
+        )
 class ExhibitionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Exhibition

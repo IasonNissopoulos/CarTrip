@@ -1,3 +1,70 @@
+<div class="container">
+
+  <div class="container">
+    <!-- You can make it whatever width you want. I'm making it full width
+    on <= small devices and 4/12 page width on >= medium devices -->
+    <form>
+      <div class="form-group">
+        <div class="form-row">
+          <div class="col-md-5">
+            <input class="form-control" #carCompany placeholder="Car Manufacturer"/>
+          </div>
+          <div class="col-md-5">
+            <input class="form-control" #engineTitle placeholder="Engine"/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-5">
+            <input class="form-control" #carModel placeholder="Car model"/>
+          </div>
+          <div class="col-md-5">
+            <input class="form-control" #engineCubic_centimeters placeholder="Cubic Centimeters"/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-5">
+            <input class="form-control" #carYear
+            placeholder="Release Date"/>
+          </div>
+          <div class="col-md-5">
+            <input class="form-control" #engineManufacturer placeholder="Engine Manufacturer"/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-5">
+            <input class="form-control" #carColor
+            placeholder="carColor"/>
+          </div>
+        </div>
+        <!--<div class="form-row">
+        <div>
+        <input type="file" multiple (change)="fileChange(input)" #input />
+        </div>
+        </div>-->
+        <div class="form-row">
+          <div class="col-md-5">
+            <input class="form-control" #carExtra_information
+            placeholder="Some Words"/>
+          </div>
+        </div>
+        <!-- (click) passes input values to add() and then clears input -->
+        <button class="btn btn-primary"
+        (click)="add(carCompany.value, carModel.value, carYear.value, carColor.value, carExtra_information.value,engineTitle.value
+        ,engineCubic_centimeters.value,engineManufacturer.value);
+        carCompany.value='';
+        carModel.value='';
+        carYear.value='';
+        carColor.value='';
+        carExtra_information.value='';
+        engineTitle.value='';
+        engineCubic_centimeters.value='';
+        engineManufacturer.value='';
+        carCompany.value=''">
+        Add
+        </button>
+      </div>
+    </form>
+  </div>
 <h2>Cars</h2>
 <ul class="list-group cars">
   <li class="list-group-item car" *ngFor="let car of cars">
@@ -17,82 +84,15 @@
       </button>
     </div>
     <div class="modal-body">
-      <form>
-        <div class="container">
-          <div class="row">
-            <!-- You can make it whatever width you want. I'm making it full width
-            on <= small devices and 4/12 page width on >= medium devices -->
-            <div class="form-group">
-              <div class="col-md-12">
-                <input class="form-control" #carCompany placeholder="Car Company"/>
-              </div>
-              <div class="col-md-12">
-                <input class="form-control" #carModel placeholder="Car model"/>
-              </div>
-              <div class="col-md-12">
-                <input class="form-control" #carYear
-                placeholder="Release Date"/>
-              </div>
-              <div class="col-md-12">
-                <input class="form-control" #carColor
-                placeholder="carColor"/>
-              </div>
-              <div class="col-md-12">
-                <label>Engine</label>
-                <div *ngIf="engine != null">
-                  <select [(ngModel)]="engine.title">
-                    <option *ngFor="let x of titles" [ngValue]="x" >{{x.title}}</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-md-12">
-                <label>Engine:
-                  <input [(ngModel)]="engine.title" placeholder="Engine"/>
-                </label>
-              </div>
-              <div class="col-md-12">
-                <label>Engine's CC:
-                  <input [(ngModel)]="engine.engine_cubic_centimeters" placeholder="CC"/>
-                </label>
-              </div>
-              <div class="col-md-12">
-                <label>Engine manufacturer:
-                  <input [(ngModel)]="engine.engine_manufacturer" placeholder="Manufacturer"/>
-                </label>
-              </div>
-              <div>
-                <input type="file" multiple (change)="fileChange(input)" #input />
-              </div>
+    </div>
 
-              <div class="col-md-12">
-                <input class="form-control" #carExtra_information
-                placeholder="Some Words"/>
-              </div>
-              <!-- (click) passes input values to add() and then clears input -->
-              <button class="btn btn-primary"
-              (click)="add(carCompany.value, carModel.value, carYear.value, carColor.value, carEngine.value, carExtra_information.value );
-              carCompany.value='';
-              carModel.value='';
-              carYear.value='';
-              carColor.value='';
-              carEngine.value='';
-              carImage.value='';
-              carExtra_information.value='';
-              carModel.value=''">
-              Add
-            </button>
-          </div>
-        </div>
-      </div>
-    </form>
-  </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+  </ng-template>
 
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
-  </div>
-</ng-template>
+  <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Add</button>
 
-<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Add</button>
-
-<pre>{{closeResult}}</pre>
+  <pre>{{closeResult}}</pre>
+</div>
 </div>

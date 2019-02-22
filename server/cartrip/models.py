@@ -7,8 +7,8 @@ import datetime
 # Create your models here.
 class Engine(models.Model) :
     title = models.CharField(max_length=200)
-    engine_cubic_centimeters = models.CharField(max_length=20)
-    engine_manufacturer = models.CharField(max_length=20)
+    cubic_centimeters = models.CharField(max_length=20)
+    manufacturer = models.CharField(max_length=20)
     def __str__(self):
         return self.title
 #Location in progress
@@ -17,14 +17,14 @@ class Location(models.Model) :
     map_location = models.CharField(max_length=200)
 
 class Car(models.Model) :
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
+    #owner = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     company = models.CharField(max_length=200)
     model = models.CharField(max_length=200)
     year = models.IntegerField('year', default=0)
     color = models.CharField(max_length=200)
     engine = models.ForeignKey(Engine, on_delete=models.CASCADE, blank=True, null=True) #in case of a car with two engines this will need to change
     extra_information = models.CharField(max_length=500, null=True, blank=True)
-    image = models.ImageField(upload_to='images')
+    #image = models.ImageField(upload_to='images')
     def __str__(self):
         return "%s %s %s" % (self.company, self.model, self.year)
     #maybe i can manage photos with photologue django

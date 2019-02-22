@@ -57,7 +57,7 @@
     <li class="nav-item" routerLinkActive="active">
       <a class="nav-link"
       routerLink="/posts"
-      href="#">posts {{username}}
+      href="#">posts
       <span class="sr-only">(current)</span></a>
     </li>
 
@@ -73,7 +73,7 @@
       <a class="nav-link"
       routerLink="/login"
       href="#">
-      {{ auth.isLoggedIn ? username : 'Login' }}</a>
+      {{auth.username}}</a>
     </li>
   </ul>
 </div>

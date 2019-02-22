@@ -26,11 +26,11 @@ export class EnginesComponent implements OnInit {
       this.engineService.getEngines()
         .subscribe(engines => this.engines = engines);
     }
-    add(title: string, engine_cubic_centimeters: number, engine_manufacturer:string ): void {
+    add(title: string, cubic_centimeters: number, manufacturer:string ): void {
       title = title.trim();
-      engine_manufacturer = engine_manufacturer.trim();
-      if (!title || !engine_cubic_centimeters || !engine_manufacturer) { return; }
-      this.engineService.addEngine({title, engine_cubic_centimeters, engine_manufacturer } as Engine)
+      manufacturer = manufacturer.trim();
+      if (!title || !cubic_centimeters || !manufacturer) { return; }
+      this.engineService.addEngine({title, cubic_centimeters, manufacturer } as Engine)
         .subscribe(engine => {
           // If the operation has failed, EngineService's handleError()
           // will have given an empty result; so we add to the
