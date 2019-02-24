@@ -5,12 +5,7 @@ from django.db import models
 import datetime
 # reporter=1 article =many report goes into article so the field that is inside the other autos pou mpainei einai 1
 # Create your models here.
-class Engine(models.Model) :
-    title = models.CharField(max_length=200)
-    cubic_centimeters = models.CharField(max_length=20)
-    manufacturer = models.CharField(max_length=20)
-    def __str__(self):
-        return self.title
+
 #Location in progress
 class Location(models.Model) :
     location_address = models.CharField(max_length=200)
@@ -22,9 +17,11 @@ class Car(models.Model) :
     model = models.CharField(max_length=200)
     year = models.IntegerField('year', default=0)
     color = models.CharField(max_length=200)
-    engine = models.ForeignKey(Engine, on_delete=models.CASCADE, blank=True, null=True) #in case of a car with two engines this will need to change
     extra_information = models.CharField(max_length=500, null=True, blank=True)
     #image = models.ImageField(upload_to='images')
+    engine = models.CharField(max_length=200, blank=True, null=True)
+    cubic_centimeters = models.CharField(max_length=20, blank=True, null=True)
+    engineManufacturer = models.CharField(max_length=20, blank=True, null=True)
     def __str__(self):
         return "%s %s %s" % (self.company, self.model, self.year)
     #maybe i can manage photos with photologue django

@@ -23,19 +23,6 @@ class CarDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Car.objects.all()
     serializer_class = CarSerializer
 
-class EngineList(generics.ListCreateAPIView):
-    serializer_class = EngineSerializer
-    def get_queryset(self):
-        queryset = Engine.objects.all()
-        title = self.request.query_params.get('title', None)
-        if title is not None:
-            queryset = queryset.filter(title__contains=title)
-        return queryset
-
-class EngineDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Engine.objects.all()
-    serializer_class = EngineSerializer
-
 class LocationList(generics.ListCreateAPIView):
     serializer_class = LocationSerializer
     def get_queryset(self):

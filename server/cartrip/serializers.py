@@ -1,19 +1,11 @@
 from rest_framework import serializers
-from .models import Engine, Location, Car, Exhibition, Excursion, Bundle, Post, Comment
+from .models import Location, Car, Exhibition, Excursion, Bundle, Post, Comment
 
-class EngineSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Engine
-        fields = ('id', 'title', 'cubic_centimeters', 'manufacturer')
 class LocationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Location
         fields = ('id', 'location_address','map_location')
 class CarSerializer(serializers.ModelSerializer):
-    engine = serializers.SlugRelatedField(
-        read_only=True,
-        slug_field='title'
-     )
     #owner = serializers.SlugRelatedField(
 
     #    read_only=True,
@@ -21,7 +13,8 @@ class CarSerializer(serializers.ModelSerializer):
     #)
     class Meta:
         model = Car
-        fields = ('id', 'company','model', 'year', 'color', 'engine', 'extra_information'#, 'image'
+        fields = ('id', 'company','model', 'year', 'color', 'extra_information',
+        'engine', 'cubic_centimeters', 'engineManufacturer'#, 'image'
         )
 class ExhibitionSerializer(serializers.ModelSerializer):
     class Meta:

@@ -13,7 +13,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { MessagesComponent } from './messages/messages.component';
 import { CarSearchComponent } from './car-search/car-search.component';
 import { LoginComponent } from './login/login.component';
-import { EnginesComponent } from './engines/engines.component';
 import { LocationsComponent } from './locations/locations.component';
 import { ExhibitionsComponent } from './exhibitions/exhibitions.component';
 import { ExcursionsComponent } from './excursions/excursions.component';
@@ -22,7 +21,6 @@ import { PostsComponent } from './posts/posts.component';
 import { CommentsComponent } from './comments/comments.component';
 
 
-import { EngineDetailComponent } from './engine-detail/engine-detail.component';
 import { CarDetailComponent } from './car-detail/car-detail.component';
 import { ExcursionDetailComponent } from './excursion-detail/excursion-detail.component';
 import { ExhibitionDetailComponent } from './exhibition-detail/exhibition-detail.component';
@@ -33,7 +31,6 @@ import { HomeComponent } from './home/home.component';
 import { PostService } from './post.service';
 import { CarService } from './car.service';
 import { MessageService } from './message.service';
-import { EngineService } from './engine.service';
 import { AuthService } from './auth.service';
 import { ExcursionService } from './excursion.service';
 import { ExhibitionService } from './exhibition.service';
@@ -46,7 +43,6 @@ import { ExhibitionService } from './exhibition.service';
     MessagesComponent,
     CarSearchComponent,
     LoginComponent,
-    EnginesComponent,
     LocationsComponent,
     ExhibitionsComponent,
     ExcursionsComponent,
@@ -54,7 +50,6 @@ import { ExhibitionService } from './exhibition.service';
     PostsComponent,
     CommentsComponent,
     CarDetailComponent,
-    EngineDetailComponent,
     ExcursionDetailComponent,
     ExhibitionDetailComponent,
     BundleDetailComponent,

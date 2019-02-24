@@ -8,8 +8,6 @@ app_name = 'cartrip'
 urlpatterns = [
     re_path('^cars/?$', views.CarList.as_view()),
     re_path(r'^cars/(?P<pk>\d+)/?$', views.CarDetail.as_view()),
-    re_path('^engines/?$', views.EngineList.as_view()),
-    re_path(r'^engines/(?P<pk>\d+)/?$', views.EngineDetail.as_view()),
     re_path('^excursions/?$', views.ExcursionList.as_view()),
     re_path(r'^excursions/(?P<pk>\d+)/?$', views.ExcursionDetail.as_view()),
     re_path('^locations/?$', views.LocationList.as_view()),

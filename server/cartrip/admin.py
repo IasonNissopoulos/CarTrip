@@ -1,9 +1,9 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Engine, Location, Car, Exhibition, Excursion, Bundle, Post, Comment
+from .models import Location, Car, Exhibition, Excursion, Bundle, Post, Comment
 
-admin.site.register(Engine)
+#admin.site.register(Engine)
 admin.site.register(Location)
 admin.site.register(Car)
 admin.site.register(Exhibition)

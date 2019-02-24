@@ -4,7 +4,9 @@ export class Car {
   model: string;
   year: number;
   color: string;
-  engine: string;
   extra_information: string;
+  engine: string;
+  cubic_centimeters;
+  engineManufacturer;
 /**  image: string[]; */
 }
