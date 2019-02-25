@@ -11,3 +11,5 @@ DATABASES = {
     }
 }
 SECRET_KEY = '@8*hvs3!w(k@*fr=gig20i1k&2tbhr1b5k!f9%hqd^egbj$4jl*'
+
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', 'snf-844633.vm.okeanos.grnet.gr']
