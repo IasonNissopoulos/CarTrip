@@ -22,17 +22,35 @@ export class BundleDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-     this.getBundle();
+    this.getBundle();
   }
 
   getBundle(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.bundleService.getBundle(id)
-      .subscribe(bundle => this.bundle = bundle);
+    .subscribe(bundle => this.bundle = bundle);
   }
 
   goBack(): void {
     this.location.back();
   }
 
+
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
+  }
 }
