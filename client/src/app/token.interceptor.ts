@@ -17,7 +17,7 @@ export class TokenInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>,
             next: HttpHandler): Observable<HttpEvent<any>> {
 
-    const token = localStorage.getItem('bangular-jwt-access-token');
+    const token = localStorage.getItem('cartripfrontend-jwt-access-token');
     if (token) {
       const authReq = req.clone({
         setHeaders: {

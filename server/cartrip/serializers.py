@@ -1,21 +1,44 @@
 from rest_framework import serializers
-from .models import Location, Car, Exhibition, Excursion, Bundle, Post, Comment
+from .models import Location, Car, Exhibition, Excursion, Bundle, Post, Comment, User
+from drf_extra_fields.fields import Base64ImageField
+from rest_framework.validators import UniqueValidator
 
 class LocationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Location
         fields = ('id', 'location_address','map_location')
-class CarSerializer(serializers.ModelSerializer):
-    #owner = serializers.SlugRelatedField(
+class UserSerializer(serializers.ModelSerializer):
 
-    #    read_only=True,
-    #    slug_field='username'
-    #)
+    email = serializers.EmailField(
+            required=True,
+            validators=[UniqueValidator(queryset=User.objects.all())]
+        )
+    username = serializers.CharField(
+            min_length=6,
+            validators=[UniqueValidator(queryset=User.objects.all())]
+        )
+    password = serializers.CharField(min_length=8)
+
+    first_name = serializers.CharField(
+        required=True,
+        min_length=2
+        )
+    last_name = serializers.CharField(
+        required=True,
+        min_length=2
+        )
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'email', 'password', 'first_name', 'last_name')
+
+
+class CarSerializer(serializers.ModelSerializer):
+    image = Base64ImageField(required=False)
+
     class Meta:
         model = Car
         fields = ('id', 'company','model', 'year', 'color', 'extra_information',
-        'engine', 'cubic_centimeters', 'engineManufacturer'#, 'image'
-        )
+        'engine', 'cubic_centimeters', 'engineManufacturer', 'image', 'owner')
 class ExhibitionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Exhibition

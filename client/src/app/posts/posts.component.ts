@@ -27,10 +27,11 @@ export class PostsComponent implements OnInit {
   }
 
   add(title: string, text: string): void {
+    let author = this.auth.username;
     title = title.trim();
     text = text.trim();
     if (!title || !text) { return; }
-    this.postService.addPost({ title, text } as Post)
+    this.postService.addPost({author, title, text } as Post)
       .subscribe(post => {
         // If the operation has failed, PostService's handleError()
         // will have given an empty result; so we add to the

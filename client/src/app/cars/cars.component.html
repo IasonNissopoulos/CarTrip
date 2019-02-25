@@ -58,9 +58,13 @@
                 placeholder="Some Words"/>
               </div>
             </div>
+            <div class="form-row">
+              <input type="file" accept="image/*" (change)="fileChange(input)" #carImage />
+            </div>
             <!-- (click) passes input values to add() and then clears input -->
+            
             <button class="btn btn-primary"
-            (click)="add(carCompany.value, carModel.value, carYear.value, carColor.value, carExtra_information.value, engineTitle.value, engineCubic_centimeters.value, engineManufacturer.value);
+            (click)="add(carCompany.value, carModel.value, carYear.value, carColor.value, carExtra_information.value, engineTitle.value, engineCubic_centimeters.value, engineManufacturer.value, carImage.value);
                      carCompany.value='';
                      carModel.value='';
                      carYear.value='';
@@ -68,7 +72,8 @@
                      carExtra_information.value='';
                      engineTitle.value='';
                      engineCubic_centimeters.value='';
-                     engineManufacturer.value='';">
+                     engineManufacturer.value='';
+                     carImage.value=''">
             Add
 
           </button>

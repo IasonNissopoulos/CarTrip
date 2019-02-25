@@ -8,5 +8,6 @@ export class Car {
   engine: string;
   cubic_centimeters;
   engineManufacturer;
-/**  image: string[]; */
+  //image: string[];
+  owner: string;
 }

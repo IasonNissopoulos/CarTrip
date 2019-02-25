@@ -5,6 +5,7 @@ import { AuthService } from '../auth.service';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 
+
 @Component({
   selector: 'app-cars',
   templateUrl: './cars.component.html',
@@ -14,7 +15,7 @@ export class CarsComponent implements OnInit {
 
   cars : Car[];
   closeResult: string;
-
+  userId;
   constructor(private carService: CarService,
     private auth: AuthService,
     private modalService: NgbModal,
@@ -22,7 +23,8 @@ export class CarsComponent implements OnInit {
 
   ngOnInit() {
     this.getCars();
-
+    /**this.userId = this.auth.getUserId();
+    */
   }
 
   getCars(): void {
@@ -30,6 +32,7 @@ export class CarsComponent implements OnInit {
     .subscribe(cars => this.cars = cars);
   }
   add(company: string,  model: string, yearStr: string, color: string, extra_information: string, engine: string, cubic_centimeters: number, engineManufacturer: string): void {
+    let owner = this.userId;
     company = company.trim();
     model = model.trim();
     color = color.trim();
@@ -39,7 +42,7 @@ export class CarsComponent implements OnInit {
     let year = +yearStr;
     if (!company || !model || !year || !color || !extra_information || !engine|| !cubic_centimeters|| !engineManufacturer) { return; }
 
-    this.carService.addCar({company, model, year, color, extra_information, engine, cubic_centimeters, engineManufacturer } as Car)
+    this.carService.addCar({ company, model, year, color, extra_information, engine, cubic_centimeters, engineManufacturer,owner } as Car)
     .subscribe(car => {
       // If the operation has failed, CarService's handleError()
       // will have given an empty result; so we add to the

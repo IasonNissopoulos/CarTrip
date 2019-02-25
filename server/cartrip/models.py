@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.contrib.auth.models import User
+from django.conf import settings
 from django.db import models
 import datetime
+from drf_extra_fields.fields import Base64ImageField
+
+
 # reporter=1 article =many report goes into article so the field that is inside the other autos pou mpainei einai 1
 # Create your models here.
 
@@ -11,17 +15,19 @@ class Location(models.Model) :
     location_address = models.CharField(max_length=200)
     map_location = models.CharField(max_length=200)
 
+
 class Car(models.Model) :
-    #owner = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
+
     company = models.CharField(max_length=200)
     model = models.CharField(max_length=200)
     year = models.IntegerField('year', default=0)
     color = models.CharField(max_length=200)
     extra_information = models.CharField(max_length=500, null=True, blank=True)
-    #image = models.ImageField(upload_to='images')
     engine = models.CharField(max_length=200, blank=True, null=True)
     cubic_centimeters = models.CharField(max_length=20, blank=True, null=True)
     engineManufacturer = models.CharField(max_length=20, blank=True, null=True)
+    image = Base64ImageField(required=False)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     def __str__(self):
         return "%s %s %s" % (self.company, self.model, self.year)
     #maybe i can manage photos with photologue django
