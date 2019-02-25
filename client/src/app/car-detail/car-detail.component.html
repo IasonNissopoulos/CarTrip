@@ -1,5 +1,6 @@
 <div *ngIf="car">
   <h2>{{ car.model }} details:</h2>
+  {{auth.getUserId()}}
   <div class="container">
     <span [ngSwitch]="auth.getUserId() == car.owner">
       <span *ngSwitchCase="true">

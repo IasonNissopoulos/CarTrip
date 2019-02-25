@@ -54,19 +54,28 @@
       href="#">posts
       <span class="sr-only">(current)</span></a>
     </li>
-    
-    <li class="nav-item" routerLinkActive="active">
-      <a class="nav-link"
-      routerLink="/login"
-      href="#">
-      {{ auth.isLoggedIn ? 'Logout' : 'Login' }}</a>
-    </li>
-    <li class="nav-item" routerLinkActive="active">
-      <a class="nav-link"
-      routerLink="/login"
-      href="#">
-      {{auth.username}}</a>
-    </li>
+    <div *ngIf="auth.isLoggedIn; else showLogin">
+      <li>
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{auth.username}}</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <a class="nav-link"
+            routerLink="/login"
+            href="#"><button class="dropdown-item">Logout</button>
+            <span class="sr-only">(current)</span></a>
+          </div>
+        </div>
+      </li>
+    </div>
+    <ng-template #showLogin>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link"
+        routerLink="/login"
+        href="#">
+        Login</a>
+      </li>
+    </ng-template>
+
   </ul>
 </div>
 </nav>

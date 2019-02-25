@@ -60,10 +60,12 @@ export class AuthService {
     localStorage.removeItem('cartripfrontend-jtw-refresh-token');
   }
   getUserId() : number {
-      var token = localStorage.getItem('cartripfrontend-jwt-access-token');
-      const decoded = jwt_decode(token);
-      const id = decoded.user_id;
-      return id;
-    }
+    var token = localStorage.getItem('cartripfrontend-jwt-access-token');
+    const tokenInfo = jwt_decode(token);
+    console.log(tokenInfo);
+    const token_id = tokenInfo.user_id;
+    console.log(token_id);
+    return token_id;
+  }
 
 }
