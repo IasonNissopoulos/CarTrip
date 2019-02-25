@@ -9,7 +9,7 @@ Developed for the "Internet and Cloud Application Development" class.
 1. Django: pip install Django
 2. Extra fields : pip install django-extra-fields
 3. Djangorestframework: pip install djangorestframework
-4. rest_framework_simplejwt: pip install
+4. rest_framework_simplejwt: pip install djangorestframework_simplejwt
 5. djangorestframework-jwt: pip install djangorestframework-jwt
 6. Pillow: pip install Pillow
 
