@@ -6,6 +6,8 @@ import { Location } from '@angular/common';
 import { BundleService }  from '../bundle.service';
 
 import { Bundle } from '../bundle';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+
 @Component({
   selector: 'app-bundle-detail',
   templateUrl: './bundle-detail.component.html',
@@ -14,11 +16,13 @@ import { Bundle } from '../bundle';
 export class BundleDetailComponent implements OnInit {
 
   bundle: Bundle;
+  closeResult: string;
 
   constructor(
     private route: ActivatedRoute,
     private bundleService: BundleService,
-    private location: Location
+    private location: Location,
+    private modalService: NgbModal
   ) { }
 
   ngOnInit(): void {
