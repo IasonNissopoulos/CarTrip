@@ -39,7 +39,7 @@ export class AuthService {
           username = username;
           this.username = username;
           if (results['refresh']) {
-            localStorage.setItem('catripfrontend-jwt-refresh-token',
+            localStorage.setItem('cartripfrontend-jwt-refresh-token',
             results['refresh']);
           }
           return true;
@@ -56,16 +56,25 @@ export class AuthService {
 
   logout(): void {
     this.isLoggedIn = false;
-    localStorage.removeItem('catripfrontend-jwt-access-token');
-    localStorage.removeItem('cartripfrontend-jtw-refresh-token');
+    localStorage.removeItem('cartripfrontend-jwt-access-token');
+    localStorage.removeItem('cartripfrontend-jwt-refresh-token');
   }
+
+  getDecodedAccessToken(token: string): any {
+    try{
+      return jwt_decode(token);
+    }
+    catch(Error){
+      return null;
+    }
+  }
+
   getUserId() : number {
-    var token = localStorage.getItem('cartripfrontend-jwt-access-token');
-    const tokenInfo = jwt_decode(token);
-    console.log(tokenInfo);
-    const token_id = tokenInfo.user_id;
-    console.log(token_id);
-    return token_id;
+    let tokenInfo = this.getDecodedAccessToken(localStorage.getItem("cartripfrontend-jwt-access-token")); // decode token
+    let user_id = tokenInfo.user_id; // get token expiration dateTime
+    return user_id;
+    console.log(user_id); // show decoded token object in console
+
   }
 
 }
