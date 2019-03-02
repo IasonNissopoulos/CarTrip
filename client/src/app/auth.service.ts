@@ -73,7 +73,6 @@ export class AuthService {
     let tokenInfo = this.getDecodedAccessToken(localStorage.getItem("cartripfrontend-jwt-access-token")); // decode token
     let user_id = tokenInfo.user_id; // get token expiration dateTime
     return user_id;
-    console.log(user_id); // show decoded token object in console
 
   }
 
