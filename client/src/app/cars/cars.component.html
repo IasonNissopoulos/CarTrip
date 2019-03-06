@@ -62,7 +62,7 @@
               <input type="file" accept="image/*" (change)="fileChange(input)" #carImage />
             </div>
             <!-- (click) passes input values to add() and then clears input -->
-            
+
             <button class="btn btn-primary"
             (click)="add(carCompany.value, carModel.value, carYear.value, carColor.value, carExtra_information.value, engineTitle.value, engineCubic_centimeters.value, engineManufacturer.value, carImage.value);
                      carCompany.value='';
@@ -88,6 +88,5 @@
 
     <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Add</button>
 
-    <pre>{{closeResult}}</pre>
   </div>
 </div>

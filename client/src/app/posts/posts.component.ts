@@ -12,6 +12,7 @@ import { AuthService } from '../auth.service';
 export class PostsComponent implements OnInit {
 
   posts : Post[];
+  userId;
 
   constructor(private postService: PostService,
   private auth: AuthService
@@ -27,7 +28,7 @@ export class PostsComponent implements OnInit {
   }
 
   add(title: string, text: string): void {
-    let author = this.auth.username;
+    let author = this.userId;
     title = title.trim();
     text = text.trim();
     if (!title || !text) { return; }
